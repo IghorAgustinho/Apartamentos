@@ -1,0 +1,87 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct apartamentos
+{
+    int numeroap;
+    char nome[100];
+    float area;
+    int moradores;
+    float valor;
+};
+
+
+int main()
+{
+    struct apartamentos vet[3];
+    int i = 0;
+    float areat = 0;
+    float gasto = 0;
+    float custopormetro = 0;
+    int apcmm = 0;
+    int escolha;
+    int posicao;
+
+    for(i=0;i<3;i++)
+    {
+        printf("[%d]Nome?:\n",i+1);
+        fgets(vet[i].nome,100,stdin);
+        printf("[%d]Area?:\n",i+1);
+        scanf("%f",&vet[i].area);
+        printf("[%d]n/ de moradores?:\n",i+1);
+        scanf("%d",&vet[i].moradores);
+        areat = areat+vet[i].area;
+        getchar();
+        system("cls");
+    }
+
+
+
+    printf("1 para mostrar a area total\n");
+    printf("2 para inserir o gasto mensal\n");
+    printf("3 para mostrar o ap com mais moradores\n");
+    scanf("%d",&escolha);
+    system("cls");
+
+if(escolha==1){ printf("%f",areat);}
+
+else{
+if(escolha==2){
+ printf("Insira o Gasto Total:\n");
+ scanf("%f",&gasto);
+
+custopormetro = gasto/areat;
+for(i=0;i<3;i++)
+{
+   vet[i].valor = vet[i].area * custopormetro;
+   printf("No AP n/ %d, a conta mensal deu %f reais.\n",i+1,vet[i].valor);
+}}} {
+if(escolha==3)
+{
+    for(i=0;i<3;i++)
+    {
+        while(vet[i].moradores>apcmm)
+        {
+            apcmm = vet[i].moradores;
+            posicao=i+1;
+
+        }
+        posicao=posicao-1;
+    }
+    printf("O maior numero de moradores e: %d, no apartamento:%d\n",apcmm,i);
+    printf("Nome:%s\n",vet[posicao].nome);
+    printf("Area:%f\n",vet[posicao].area);
+    printf("Moradores:%d\n",vet[posicao].moradores);
+
+}}
+
+return(0);
+}
+
+
+
+
+
+
+
+
